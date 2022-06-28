@@ -21,6 +21,7 @@ export class UserdataComponent implements OnInit {
   pageNumber: number = 1;
 
   displayedColumns: string[] = [
+    'image',
     'id',
     'email',
     'first_name',
@@ -51,7 +52,6 @@ export class UserdataComponent implements OnInit {
     this.userService.getUserData(page).subscribe((data) => {
       this.userResponse = data;
       this.dataSource = new MatTableDataSource<User>(data.data);
-      // this.dataSource.paginator = this.paginator;
       console.log(this.dataSource);
     });
   }

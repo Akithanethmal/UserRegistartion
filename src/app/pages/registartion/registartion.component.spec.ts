@@ -8,18 +8,18 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { UserService } from 'src/app/services/user.service';
 import { RegistartionComponent } from './registartion.component';
 
-fdescribe('RegistartionComponent', () => {
+describe('RegistartionComponent', () => {
   let component: RegistartionComponent;
   let fixture: ComponentFixture<RegistartionComponent>;
   let userService: UserServiceStub;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegistartionComponent ],
-      imports: [ReactiveFormsModule,RouterTestingModule,HttpClientTestingModule,MatSnackBarModule],
+      declarations: [RegistartionComponent],
+      imports: [ReactiveFormsModule, RouterTestingModule, HttpClientTestingModule, MatSnackBarModule],
       providers: [{ provide: UserService, useValue: new UserServiceStub() }]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -34,7 +34,7 @@ fdescribe('RegistartionComponent', () => {
   });
 
   it('should call service', () => {
-    const userServiceSpy = spyOn(userService , 'createUserData');
+    const userServiceSpy = spyOn(userService, 'createUserData').and.callThrough();
     component.onSubmit();
 
     expect(userServiceSpy).toHaveBeenCalledTimes(1);
@@ -42,8 +42,8 @@ fdescribe('RegistartionComponent', () => {
 });
 
 class UserServiceStub {
-  constructor(){}
+  constructor() { }
 
-  createUserData(user: User): Observable<any> { return of();}
+  createUserData(user: User): Observable<any> { return of(); }
 
- }
+}

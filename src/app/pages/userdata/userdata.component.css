@@ -56,14 +56,6 @@ table {
   overflow: auto;
   max-height: calc(100vh - 155px);
   margin-bottom: 10px;
-
-  /* .mat-header-row {
-    min-height: 54px;
-    font-weight: 400%;
-  }
-  .mat-paginator {
-    min-height: 54px;
-  } */
 }
 
 ::ng-deep .custom-style{
